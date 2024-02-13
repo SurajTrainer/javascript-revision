@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events full details</title>
+    <style>
+        .container{
+            background-color: palegreen;
+            padding: 23px;
+            margin: 23px;
+        }
+        .childContainer{
+            background-color: blueviolet;
+            padding: 23px;
+            margin: 23px;
+        }
+        .child{
+            background-color: skyblue;
+            padding: 30px;
+            margin: 32px;
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="childContainer">
+            <div class="child">
+                Hey this is child element..
+            </div>
+        </div>
+    </div>
+    <!-- event bubbling -->
+
+<script>
+    // document.querySelector(".child").addEventListener('click', () =>{
+    //         alert('hey this is child')
+    // })
+
+    // for stopping Propagation
+    document.querySelector(".child").addEventListener('click', (e) =>{
+            alert('hey this is child')
+            e.stopPropagation();
+    })
+
+    document.querySelector(".childContainer").addEventListener('click', () =>{
+            alert('hey this is childContainer')
+            e.stopPropagation();
+    })
+    document.querySelector(".container").addEventListener('click', () =>{
+            alert('hey this is only  container')
+    })
+
+
+    // setInterVal
+
+    function getRandomcolor() {
+    let val1 = Math.ceil( Math.random() *255)
+    let val2 = Math.ceil( Math.random() *255)
+    let val3 = Math.ceil( Math.random() *255)
+ 
+    return `rgb(${val1},${val2},${val3})`
+}
+
+//  setInterval uses for repeting after some seconds
+    // setInterval(() => {
+    //     document.querySelector(".childContainer").style.backgroundColor = getRandomcolor();
+    // }, 2000);
+
+
+    //  setTimeout used for only once a time..
+    setTimeout(() => {
+        document.querySelector(".childContainer").style.backgroundColor = getRandomcolor();
+    }, 2000);
+</script>
+</body>
+</html>
