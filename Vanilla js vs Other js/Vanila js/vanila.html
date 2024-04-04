@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JavaScript Example</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const appElement = document.getElementById('app');
+            const items = ['Item 1', 'Item 2', 'Item 3'];
+
+            // Vanilla JavaScript
+            items.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                appElement.appendChild(listItem);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- Vanilla JavaScript is a term used to refer to JavaScript code that is written without the aid of any external libraries or frameworks. It is simply a pure JavaScript code written in its raw form, without any plugins or other libraries. -->
